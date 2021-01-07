@@ -28,6 +28,9 @@
     <Filter Include="源文件\FIle">
       <UniqueIdentifier>{fee9743c-20df-4d94-9995-01014e7ede0a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="资源文件\Record">
+      <UniqueIdentifier>{681c3f07-550d-412e-bb26-dd70ac80da6f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameRun.cpp">

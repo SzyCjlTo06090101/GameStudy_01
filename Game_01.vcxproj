@@ -142,10 +142,13 @@
     <ClCompile Include="File.cpp" />
     <ClCompile Include="GameRun.cpp" />
     <ClCompile Include="Login.cpp" />
+    <ClCompile Include="StaticConstant.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Login.h" />
     <ClInclude Include="File.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="StaticConstant.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="开发规划.txt" />

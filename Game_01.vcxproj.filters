@@ -28,8 +28,11 @@
     <Filter Include="源文件\FIle">
       <UniqueIdentifier>{fee9743c-20df-4d94-9995-01014e7ede0a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="资源文件\Record">
-      <UniqueIdentifier>{681c3f07-550d-412e-bb26-dd70ac80da6f}</UniqueIdentifier>
+    <Filter Include="源文件\Constant">
+      <UniqueIdentifier>{4a892d79-f3b0-46f8-b264-97c4207a6d58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Constant">
+      <UniqueIdentifier>{e54ddcf3-26d5-4674-810a-d8982c6cbe5b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -42,6 +45,9 @@
     <ClCompile Include="File.cpp">
       <Filter>源文件\FIle</Filter>
     </ClCompile>
+    <ClCompile Include="StaticConstant.cpp">
+      <Filter>源文件\Constant</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Login.h">
@@ -49,6 +55,12 @@
     </ClInclude>
     <ClInclude Include="File.h">
       <Filter>头文件\File</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticConstant.h">
+      <Filter>头文件\Constant</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -19,9 +19,6 @@
     <Filter Include="头文件\File">
       <UniqueIdentifier>{b241a347-6f98-4032-b291-847a951f511b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="头文件\model">
-      <UniqueIdentifier>{0c1a9fcb-f99e-456b-8fc6-beb4b994e442}</UniqueIdentifier>
-    </Filter>
     <Filter Include="源文件\Login">
       <UniqueIdentifier>{9e2b80e2-a4b0-41f8-aa62-45ee35bfe5b9}</UniqueIdentifier>
     </Filter>
@@ -34,6 +31,9 @@
     <Filter Include="头文件\Constant">
       <UniqueIdentifier>{e54ddcf3-26d5-4674-810a-d8982c6cbe5b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Mmodel">
+      <UniqueIdentifier>{0c1a9fcb-f99e-456b-8fc6-beb4b994e442}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameRun.cpp">
@@ -42,25 +42,25 @@
     <ClCompile Include="Login.cpp">
       <Filter>源文件\Login</Filter>
     </ClCompile>
-    <ClCompile Include="File.cpp">
-      <Filter>源文件\FIle</Filter>
-    </ClCompile>
     <ClCompile Include="StaticConstant.cpp">
       <Filter>源文件\Constant</Filter>
+    </ClCompile>
+    <ClCompile Include="DataStorage.cpp">
+      <Filter>源文件\FIle</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Login.h">
       <Filter>头文件\Login</Filter>
     </ClInclude>
-    <ClInclude Include="File.h">
-      <Filter>头文件\File</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="StaticConstant.h">
       <Filter>头文件\Constant</Filter>
+    </ClInclude>
+    <ClInclude Include="DataStorage.h">
+      <Filter>头文件\File</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

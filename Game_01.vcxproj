@@ -92,6 +92,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -139,14 +140,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="File.cpp" />
+    <ClCompile Include="DataStorage.cpp" />
     <ClCompile Include="GameRun.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="StaticConstant.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DataStorage.h" />
     <ClInclude Include="Login.h" />
-    <ClInclude Include="File.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="StaticConstant.h" />
   </ItemGroup>

@@ -28,12 +28,12 @@ bool DataStorage::TestingStorageAndEstablish(string FilePath) {
 }
 
 
-void DataStorage::InsertUserInformation(string FilePath, string str) {
+void DataStorage::InsertUserInformation(string FilePath, string Str) {
 	try
 	{
 		ofstream file;
 		file.open(FilePath, ios::app);
-		file << str;
+		file << Str;
 		file.close();
 	}
 	catch (const std::exception&)
@@ -65,7 +65,7 @@ string DataStorage::GetFileData(string FilePath) {
 }
 
 
-bool DataStorage::GetFileDataAndTesting(string FilePath, string str) {
+bool DataStorage::GetFileDataAndTesting(string FilePath, string Str) {
 	try
 	{
 		ifstream file;
@@ -74,7 +74,7 @@ bool DataStorage::GetFileDataAndTesting(string FilePath, string str) {
 		{
 			string content;
 			file >> content;
-			if (str == content) //逐行比较内容
+			if (Str == content) //逐行比较内容
 			{
 				file.close();
 				return true;
@@ -89,5 +89,33 @@ bool DataStorage::GetFileDataAndTesting(string FilePath, string str) {
 		throw;
 	}
 }
-
+/*
+	FilePath 文件路径
+	StaticSub 需要判断文件每行内容的开始下标
+	EndSub 需要判断文件每行内容的结束下标
+	Str 比较的字段
+*/
+bool DataStorage::CheckPerLineContent(string FilePath, int StaticSub, int EndSub, string Str) {
+	try
+	{
+		ifstream file;
+		file.open(FilePath);
+		while (file)
+		{
+			string content;
+			file >> content;
+			if (Str == content.substr(StaticSub, EndSub)) //逐行比较内容
+			{
+				file.close();
+				return true;
+			}
+		}
+		file.close();
+		return false;
+	}
+	catch (const std::exception&)
+	{
+		throw;
+	}
+}
 

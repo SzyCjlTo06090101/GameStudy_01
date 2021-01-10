@@ -38,7 +38,12 @@ bool Login::AccountPasswordLogin() {
 bool Login::AccountPasswordRegister() {
 	try
 	{
-		string User = this->UsernameAndPasswordMerga();
+		string User = this->UsernameAndPasswordMerga() + "\n";
+		//校验用户是否已经存在,(用户名重复时 长度相同)
+		if (DataStorage::CheckPerLineContent(this->UserPath, 0, User.find_last_of(":"), User.substr(0, User.find_last_of(":")))) {
+			cout << "注册失败,用户已存在" << endl;
+			return false;
+		}
 		DataStorage::InsertUserInformation(this->UserPath, User);
 		cout << "注册成功" << endl;
 		return true;

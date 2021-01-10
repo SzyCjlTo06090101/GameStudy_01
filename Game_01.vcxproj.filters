@@ -34,6 +34,18 @@
     <Filter Include="头文件\Mmodel">
       <UniqueIdentifier>{0c1a9fcb-f99e-456b-8fc6-beb4b994e442}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Mmodel\Role">
+      <UniqueIdentifier>{b920e3cd-f082-4af0-8672-16d815d6394e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Mmodel">
+      <UniqueIdentifier>{86b6456e-8873-46f4-a73c-3ebf58522487}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Mmodel\Role">
+      <UniqueIdentifier>{b660ab77-52c5-4229-948e-d8ee3a89f738}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Utils">
+      <UniqueIdentifier>{4c62a02e-2f2e-47b3-813d-ff270875e161}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameRun.cpp">
@@ -48,6 +60,9 @@
     <ClCompile Include="DataStorage.cpp">
       <Filter>源文件\FIle</Filter>
     </ClCompile>
+    <ClCompile Include="Warrior.cpp">
+      <Filter>源文件\Mmodel\Role</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Login.h">
@@ -61,6 +76,15 @@
     </ClInclude>
     <ClInclude Include="DataStorage.h">
       <Filter>头文件\File</Filter>
+    </ClInclude>
+    <ClInclude Include="Role.h">
+      <Filter>头文件\Mmodel</Filter>
+    </ClInclude>
+    <ClInclude Include="Warrior.h">
+      <Filter>头文件\Mmodel\Role</Filter>
+    </ClInclude>
+    <ClInclude Include="UuidUtils.h">
+      <Filter>头文件\Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

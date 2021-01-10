@@ -144,12 +144,16 @@
     <ClCompile Include="GameRun.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="StaticConstant.cpp" />
+    <ClCompile Include="Warrior.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataStorage.h" />
     <ClInclude Include="Login.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Role.h" />
     <ClInclude Include="StaticConstant.h" />
+    <ClInclude Include="UuidUtils.h" />
+    <ClInclude Include="Warrior.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="开发规划.txt" />

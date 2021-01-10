@@ -5,7 +5,7 @@ using namespace std;
 
 class Login {
 private:
-	const string UserPath = ".\\Record\\User.txt";
+	const string UserPath = Constant::UserPath;
 public:
 	Login();
 	//账号密码登陆 登陆成功后返回用户名称

@@ -6,16 +6,22 @@
 using namespace std;
 
 void GameStart();
-string LoginStart();
-
-Login* lg = new Login();
+void LoginStart(Login* lg);
 
 //逻辑进程
 void GameStart() {
 	try
 	{
+		Login* lg = new Login();
 		/*1.进入登录进程*/
-		LoginStart();
+		LoginStart(lg);
+		//判断是否登录成功
+		if (lg->UserName.empty())
+			cout << "登录错误" << endl;
+		//登录成功 进入角色选择进程
+
+		cout << lg->UserName << endl;
+		delete(lg);
 	}
 	catch (const std::exception&)
 	{
@@ -24,7 +30,7 @@ void GameStart() {
 }
 
 //登录进程
-string LoginStart() {
+void LoginStart(Login* lg) {
 	while (true)
 	{
 		Constant::LoginDisplay();
@@ -33,13 +39,19 @@ string LoginStart() {
 		{
 		case '1'://登录
 			lg->AccountPasswordLogin();
-			if (lg->UserName.empty())
+			if (lg->UserName.empty()) 
+			{
 				cout << "用户或密码错误" << endl;
+				break;
+			}
 			else
+			{
 				cout << "登陆成功" << endl;
-			break;
+				return;
+			}
 		case '2'://注册
-			lg->AccountPasswordRegister(); break;
+			lg->AccountPasswordRegister();
+			break;
 		case '0'://退出
 			exit(0);
 		default:

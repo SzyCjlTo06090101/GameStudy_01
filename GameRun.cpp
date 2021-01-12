@@ -3,28 +3,35 @@
 #include <Windows.h>
 #include "StaticConstant.h"
 #include "Login.h"
+#include "DataStorage.h"
+#include "RoleUtils.h"
 using namespace std;
 
 void GameStart();
 void LoginStart(Login* lg);
+void RoleChoice(string UserName);
 
 //逻辑进程
 void GameStart() {
 	try
 	{
-		Login* lg = new Login();
+		/*校验资源文件夹是否存在 不存在则创建*/
+		string FilePath[] = {Constant::Path, Constant::UserPath, Constant::RolesPath};
+		DataStorage::TestingCatalog(FilePath);
+
 		/*1.进入登录进程*/
+		Login* lg = new Login();
 		LoginStart(lg);
-		//判断是否登录成功
-		if (lg->UserName.empty())
-			cout << "登录错误" << endl;
+
 		//登录成功 进入角色选择进程
+		RoleChoice(lg->UserName);
 
 		cout << lg->UserName << endl;
 		delete(lg);
 	}
 	catch (const std::exception&)
 	{
+		cout << "进程异常" << endl;
 		return;
 	}
 }
@@ -63,7 +70,21 @@ void LoginStart(Login* lg) {
 	}
 }
 
+//游戏开始、角色选择进程
+void RoleChoice(string UserName) {
+	//校验用户是否有角色信息存储文件 不存在则创建
+	string path = Constant::RolesPath + UserName;
+	DataStorage::TestingStorageAndEstablish(path);
+	//获取账号所有角色信息
+	string RoleString = DataStorage::GetFileData(path);
+	//拆分获得角色信息
+}
+
 int main() {
 	//游戏开始运行
-	GameStart();
+	//GameStart();
+
+	vector<string>* str =  RoleUtils::StringSplit("qwe;ert;tyu;", ";");
+	delete(str);
+	
 }

@@ -1,9 +1,12 @@
 #pragma once
 #include <string>
+#include <vector>
 using namespace std;
 
 class Role {
 protected:
+	//职业ID  1.战士  2.法师  3.牧师
+	int OccupationId;
 	//角色ID
 	string Id;
 	//角色名称
@@ -20,6 +23,28 @@ protected:
 	double Experience;
 	//角色升级所需经验值
 	double ExperienceTotal;
+	//增益状态
+	vector<int>* Buffer;
+	//减益状态
+	vector<int>* DeBuffer;
+public:
+	//回合开始
+	void RoundStart();
+	//回合结束
+	void RoundEnd();
+	//攻击
+	void Attack(vector<Role> objs);
+	//被攻击
+	void BeHurt(double Hurt);
+	//1技能 
+	void SkillOne();
+	//2技能
+	void SkillTwo();
+	//3技能
+	void SkillThree();
+
+	//toString
+	string ToString();
 public:
 	string GetId() {
 		return this->Id;
@@ -75,5 +100,19 @@ public:
 	}
 	void SetExperienceTotal(double ExperienceTotal) {
 		this->ExperienceTotal = ExperienceTotal;
+	}
+
+	vector<int>* GetBuffer() {
+		return this->Buffer;
+	}
+	void SetBuffer(vector<int>* Buffer) {
+		this->Buffer = Buffer;
+	}
+
+	vector<int>* GetDeBuffer() {
+		return this->DeBuffer;
+	}
+	void SetDeBuffer(vector<int>* DeBuffer) {
+		this->DeBuffer = DeBuffer;
 	}
 };

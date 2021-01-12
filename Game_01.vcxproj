@@ -86,7 +86,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
@@ -143,6 +143,7 @@
     <ClCompile Include="DataStorage.cpp" />
     <ClCompile Include="GameRun.cpp" />
     <ClCompile Include="Login.cpp" />
+    <ClCompile Include="Role.cpp" />
     <ClCompile Include="StaticConstant.cpp" />
     <ClCompile Include="Warrior.cpp" />
   </ItemGroup>
@@ -151,6 +152,7 @@
     <ClInclude Include="Login.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Role.h" />
+    <ClInclude Include="RoleUtils.h" />
     <ClInclude Include="StaticConstant.h" />
     <ClInclude Include="UuidUtils.h" />
     <ClInclude Include="Warrior.h" />

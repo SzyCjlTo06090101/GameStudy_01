@@ -3,6 +3,8 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include <direct.h>
+#include <io.h>
 using namespace std;
 
 bool DataStorage::TestingStorageAndEstablish(string FilePath) {
@@ -117,5 +119,22 @@ bool DataStorage::CheckPerLineContent(string FilePath, int StaticSub, int EndSub
 	{
 		throw;
 	}
+
 }
+
+void DataStorage::TestingCatalog(string FilePath[]) {
+	try
+	{
+		for (int i = 0; i < FilePath->length(); i++)
+		{
+			if (_access(FilePath[i].c_str(), 0) == -1)	//如果文件夹不存在
+				_mkdir(FilePath[i].c_str());				//则创建
+		}
+	}
+	catch (const std::exception&)
+	{
+		throw;
+	}
+}
+
 

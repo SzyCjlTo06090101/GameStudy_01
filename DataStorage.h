@@ -14,6 +14,8 @@ public:
 	static bool GetFileDataAndTesting(string FilePath, string Str);
 	//逐行校验文件制定内容
 	static bool CheckPerLineContent(string FilePath, int StaticSub, int EndSub, string Str);
+	//校验指定目录是否存在
+	static void TestingCatalog(string FilePath[]);
 	
 
 };

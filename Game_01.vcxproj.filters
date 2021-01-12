@@ -63,6 +63,9 @@
     <ClCompile Include="Warrior.cpp">
       <Filter>源文件\Mmodel\Role</Filter>
     </ClCompile>
+    <ClCompile Include="Role.cpp">
+      <Filter>源文件\Mmodel</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Login.h">
@@ -84,6 +87,9 @@
       <Filter>头文件\Mmodel\Role</Filter>
     </ClInclude>
     <ClInclude Include="UuidUtils.h">
+      <Filter>头文件\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="RoleUtils.h">
       <Filter>头文件\Utils</Filter>
     </ClInclude>
   </ItemGroup>

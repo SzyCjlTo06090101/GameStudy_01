@@ -26,16 +26,17 @@ public:
 
 
     //拆分角色存储字符串 封装到角色对象
-    static vector<Role>* StringSplitRole(const vector<string>& RoleStrs, const string& Pattern) //字符串分割到数组
+    static vector<Role>* StringSplitRole(const vector<string>* RoleStrs) //字符串分割到数组
     {
         vector<Role>* RoleVec = new vector<Role>;
-        for (string RoleStr : RoleStrs)
+        for (string RoleStr : *RoleStrs)
         {
             vector<string>* Roles = StringSplit(RoleStr, ":");
             Role* Rol = new Role();
-            // TODO 分装到Role
+            // TODO 分装到Role DOTO
             RoleVec->push_back(*Rol);
             delete(Rol);
+            Rol = NULL;
         }
         return RoleVec;
     }

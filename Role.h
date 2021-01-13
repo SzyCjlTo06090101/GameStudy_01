@@ -46,6 +46,13 @@ public:
 	//toString
 	string ToString();
 public:
+	int GetOccupationId() {
+		return this->OccupationId;
+	}
+	void SetOccupationId(int OccupationId) {
+		this->OccupationId = OccupationId;
+	}
+
 	string GetId() {
 		return this->Id;
 	}

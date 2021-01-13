@@ -8,8 +8,7 @@ private:
 	float CriticalHit;
 public:
 	//初始化
-	Warrior(string Name);
-
+	Warrior();
 public:
 	float GetCriticalHit() {
 		return this->CriticalHit;
@@ -17,4 +16,9 @@ public:
 	void SetCriticalHit(float CriticalHit) {
 		this->CriticalHit = CriticalHit;
 	}
+
+	//角色介绍
+	string ToStringExhibition();
+	//角色保存时的字符串
+	string PreservationToString();
 };

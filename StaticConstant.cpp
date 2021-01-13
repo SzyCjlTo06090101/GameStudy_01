@@ -1,7 +1,9 @@
 #include "StaticConstant.h"
+#include "Role.h"
 #include <string>
 #include <iostream>
 #include <Windows.h>
+#include <vector>
 using namespace std;
 
 const string Constant::Path = ".\\Record";
@@ -36,13 +38,18 @@ void Constant::RoleEstablishDisplay() {
     cout << "-------------------------" << endl;
 }
 
-void Constant::RoleChoiceDisplay(string Chioce[]) {
+void Constant::RoleEstablishInformationDisplay() {
+    cout << "输入Y确认角色创建" << endl;
+    cout << "输入任意字符返回角色创建" << endl;
+}
+
+void Constant::RoleChoiceDisplay(vector<Role>* Rol) {
     cout << "-------------------------" << endl;
-    for (int i = 0; i < Chioce->length(); i++)
+    for (Role r : *Rol)
     {
-        cout << "---" << Chioce[i] << "--" << endl;
+        cout << "---" << r.ToString() << "--" << endl;
     }
-    cout << "---9.创建              --" << endl;
+    cout << "---x.创建              --" << endl;
     cout << "---0.后退              --" << endl;
     cout << "-------------------------" << endl;
 }

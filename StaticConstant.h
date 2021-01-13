@@ -1,5 +1,7 @@
 #pragma once
+#include "Role.h"
 #include <string>
+#include <vector>
 using namespace std;
 
 
@@ -16,5 +18,6 @@ public:
 	/***************************菜单展示**************************/
 	static void LoginDisplay(); //登录界面
 	static void RoleEstablishDisplay(); //角色创建界面
-	static void RoleChoiceDisplay(string Choice[]); //角色选择界面
+	static void RoleEstablishInformationDisplay(); //角色创建界面
+	static void RoleChoiceDisplay(vector<Role>* Rol); //角色选择界面
 };

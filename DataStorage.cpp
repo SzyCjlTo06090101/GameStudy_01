@@ -3,6 +3,7 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include <vector>
 #include <direct.h>
 #include <io.h>
 using namespace std;
@@ -122,17 +123,67 @@ bool DataStorage::CheckPerLineContent(string FilePath, int StaticSub, int EndSub
 
 }
 
-void DataStorage::TestingCatalog(string FilePath[]) {
+void DataStorage::TestingCatalog(vector<string>* FilePath) {
 	try
 	{
-		for (int i = 0; i < FilePath->length(); i++)
+		for (string Path : *FilePath)
 		{
-			if (_access(FilePath[i].c_str(), 0) == -1)	//如果文件夹不存在
-				_mkdir(FilePath[i].c_str());				//则创建
+			if (_access(Path.c_str(), 0) == -1)	//如果文件夹不存在
+				_mkdir(Path.c_str()); //则创建
 		}
 	}
 	catch (const std::exception&)
 	{
+		throw;
+	}
+}
+
+//先读出保存文件所有内容 然后比较每一行内容  根据id找到需要覆盖的信息 替换成要保存得内容 然后全部保存回文件
+//如果没有一行相同 则最后新增一条数据
+void DataStorage::RolePreservation(string path, string content, string roleId) {
+	try
+	{
+		vector<string>* ver = new vector<string>;
+		bool b = true;
+		//打开文件获取内容
+		ifstream file;
+		file.open(path);
+		while (file)
+		{
+			string tContent;
+			file >> tContent;
+			if (tContent.empty())
+				continue;
+			if (tContent.find(roleId) == tContent.npos) //字符串中查询不到子字符串地址时返回npos值
+			{
+				ver->push_back(tContent);
+			}
+			else
+			{
+				ver->push_back(content);
+				b = false;
+			}
+		}
+		file.close();
+
+		if (b) //b为true 说明这是一条新建的数据 追加到最后
+		{
+			ver->push_back(content);
+		}
+
+		//重新写入文件
+		ofstream ofr;
+		ofr.open(path, ios::trunc);
+		for (string v : *ver) {
+			ofr << v << endl;
+		}
+		ofr.close();
+		delete(ver);
+		ver = NULL;
+	}
+	catch (const std::exception&)
+	{
+		cout << "保存失败" << endl;
 		throw;
 	}
 }

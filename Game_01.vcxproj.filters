@@ -46,6 +46,9 @@
     <Filter Include="头文件\Utils">
       <UniqueIdentifier>{4c62a02e-2f2e-47b3-813d-ff270875e161}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Utils">
+      <UniqueIdentifier>{7c33058b-1c73-460e-830d-9d5c3eb843b1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameRun.cpp">
@@ -65,6 +68,12 @@
     </ClCompile>
     <ClCompile Include="Role.cpp">
       <Filter>源文件\Mmodel</Filter>
+    </ClCompile>
+    <ClCompile Include="Master.cpp">
+      <Filter>源文件\Mmodel\Role</Filter>
+    </ClCompile>
+    <ClCompile Include="Minister.cpp">
+      <Filter>源文件\Mmodel\Role</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -91,6 +100,12 @@
     </ClInclude>
     <ClInclude Include="RoleUtils.h">
       <Filter>头文件\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Master.h">
+      <Filter>头文件\Mmodel\Role</Filter>
+    </ClInclude>
+    <ClInclude Include="Minister.h">
+      <Filter>头文件\Mmodel\Role</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

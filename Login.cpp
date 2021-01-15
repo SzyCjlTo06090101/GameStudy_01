@@ -66,5 +66,6 @@ string Login::UsernameAndPasswordMerga() {
 	cout << endl;
 	//组装信息并校验
 	string User = UserName + ":" + PassWord;
+	rewind(stdin); //清理缓冲区
 	return User;
 }

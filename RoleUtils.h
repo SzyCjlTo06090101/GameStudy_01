@@ -33,6 +33,10 @@ public:
         {
             vector<string>* Roles = StringSplit(RoleStr, ":");
             Role* Rol = new Role();
+            Rol->SetOccupationId(atoi((*Roles)[0].c_str()));
+            Rol->SetId((*Roles)[1]);
+            Rol->SetRoleName((*Roles)[3]);
+            Rol->SetGrade(atoi((*Roles)[2].c_str()));
             // TODO ·Ö×°µ½Role DOTO
             RoleVec->push_back(*Rol);
             delete(Rol);

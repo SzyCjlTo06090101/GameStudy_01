@@ -143,6 +143,8 @@
     <ClCompile Include="DataStorage.cpp" />
     <ClCompile Include="GameRun.cpp" />
     <ClCompile Include="Login.cpp" />
+    <ClCompile Include="Master.cpp" />
+    <ClCompile Include="Minister.cpp" />
     <ClCompile Include="Role.cpp" />
     <ClCompile Include="StaticConstant.cpp" />
     <ClCompile Include="Warrior.cpp" />
@@ -150,6 +152,8 @@
   <ItemGroup>
     <ClInclude Include="DataStorage.h" />
     <ClInclude Include="Login.h" />
+    <ClInclude Include="Master.h" />
+    <ClInclude Include="Minister.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Role.h" />
     <ClInclude Include="RoleUtils.h" />

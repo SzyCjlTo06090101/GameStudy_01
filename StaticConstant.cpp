@@ -27,6 +27,7 @@ void Constant::LoginDisplay() {
     cout << "---2.注册              --" << endl;
     cout << "---0.退出              --" << endl;
     cout << "-------------------------" << endl;
+    cout << "---请选择：";
 }
 
 void Constant::RoleEstablishDisplay() {
@@ -36,6 +37,8 @@ void Constant::RoleEstablishDisplay() {
     cout << "---3.牧师              --" << endl;
     cout << "---0.后退              --" << endl;
     cout << "-------------------------" << endl;
+    cout << "---请选择：";
+
 }
 
 void Constant::RoleEstablishInformationDisplay() {
@@ -45,11 +48,15 @@ void Constant::RoleEstablishInformationDisplay() {
 
 void Constant::RoleChoiceDisplay(vector<Role>* Rol) {
     cout << "-------------------------" << endl;
+    int i = 1;
     for (Role r : *Rol)
     {
-        cout << "---" << r.ToString() << "--" << endl;
+        cout << "---" << i << "." << r.ToString() << "--" << endl;
+        i++;
     }
     cout << "---x.创建              --" << endl;
     cout << "---0.后退              --" << endl;
     cout << "-------------------------" << endl;
+    cout << "---请选择：";
+
 }

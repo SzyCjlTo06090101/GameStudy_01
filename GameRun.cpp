@@ -6,12 +6,14 @@
 #include "Login.h"
 #include "DataStorage.h"
 #include "Warrior.h"
+#include "Master.h"
+#include "Minister.h"
 #include "RoleUtils.h"
 using namespace std;
 
 void GameStart();
 void LoginStart(Login* lg);
-void RoleChoice(string UserName);
+string RoleChoice(string UserName);
 void RoleEstablish(string path);
 
 //逻辑进程
@@ -30,7 +32,13 @@ void GameStart() {
 			LoginStart(lg);
 
 			//登录成功 进入角色选择进程
-			RoleChoice(lg->UserName);
+			string roleId = RoleChoice(lg->UserName);
+
+			//角色id不为空时进入游戏 否则推出
+			if (!roleId.empty())
+			{
+				cout << roleId << endl;
+			}
 			delete(lg);
 		}
 	}
@@ -79,7 +87,7 @@ void LoginStart(Login* lg) {
 }
 
 //游戏开始、角色选择进程
-void RoleChoice(string UserName) {
+string RoleChoice(string UserName) {
 	//校验用户是否有角色信息存储文件 不存在则创建
 	string path = Constant::RolesPath + UserName + ".txt";
 	DataStorage::TestingStorageAndEstablish(path);
@@ -95,7 +103,7 @@ void RoleChoice(string UserName) {
 		rewind(stdin); //清理缓冲区
 		if (pt == '0') //后退菜单
 		{
-			return;
+			return "";
 		}
 		else if (pt == 'x') //新建角色
 		{
@@ -104,13 +112,18 @@ void RoleChoice(string UserName) {
 		}
 		else //选择角色
 		{
-
+			//返回角色id
+			string rolesId = (*Roles)[atoi(&pt) - 1].GetId();
+			delete(Roles);
+			Roles = NULL;
+			return rolesId;
 		}
 		Constant::LoDing();
 		system("cls");
 		delete(Roles);
 		Roles = NULL;
 	}
+	return "";
 }
 
 //创建角色进程
@@ -128,12 +141,14 @@ void RoleEstablish(string path) {
 			Warrior* war = new Warrior();
 			war->ToStringExhibition();
 			Constant::RoleEstablishInformationDisplay();
-			pt = getchar(); getchar(); //防止输入渗透
+			char pt = getchar();
+			rewind(stdin); //清理缓冲区
 			if (pt == 'y')
 			{
 				cout << "请输入角色名称:";
 				string name;
 				cin >> name;
+				rewind(stdin); //清理缓冲区
 				war->SetRoleName(name);
 				DataStorage::RolePreservation(path, war->PreservationToString(), war->GetId());
 			}
@@ -142,11 +157,47 @@ void RoleEstablish(string path) {
 			return;
 		}
 		case '2':
-			cout << "法师未规划" << endl;
-			break;
+		{
+			system("cls");
+			Master* mas = new Master();
+			mas->ToStringExhibition();
+			Constant::RoleEstablishInformationDisplay();
+			char pt = getchar();
+			rewind(stdin); //清理缓冲区
+			if (pt == 'y')
+			{
+				cout << "请输入角色名称:";
+				string name;
+				cin >> name;
+				rewind(stdin); //清理缓冲区
+				mas->SetRoleName(name);
+				DataStorage::RolePreservation(path, mas->PreservationToString(), mas->GetId());
+			}
+			delete(mas);
+			mas = NULL;
+			return;
+		}
 		case '3':
-			cout << "牧师未规划" << endl;
-			break;
+		{
+			system("cls");
+			Minister* min = new Minister();
+			min->ToStringExhibition();
+			Constant::RoleEstablishInformationDisplay();
+			char pt = getchar();
+			rewind(stdin); //清理缓冲区
+			if (pt == 'y')
+			{
+				cout << "请输入角色名称:";
+				string name;
+				cin >> name;
+				rewind(stdin); //清理缓冲区
+				min->SetRoleName(name);
+				DataStorage::RolePreservation(path, min->PreservationToString(), min->GetId());
+			}
+			delete(min);
+			min = NULL;
+			return;
+		}
 		case '0'://后退
 			return;
 		default:

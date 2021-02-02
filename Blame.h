@@ -4,7 +4,7 @@
 using namespace std;
 
 class Blame {
-private:
+protected:
 	//Ãû³Æ
 	string name;
 	//ÑªÁ¿

@@ -58,7 +58,6 @@ bool Login::AccountPasswordRegister() {
 string Login::UsernameAndPasswordMerga() {
 	string UserName;
 	string PassWord;
-	cout << "--------------------------------" << endl;
 	cout << "请输入用户名名称:";
 	cin >> UserName;
 	cout << endl << "请输入密码:";

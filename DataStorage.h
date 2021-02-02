@@ -13,7 +13,7 @@ public:
 	static string GetFileData(string FilePath);
 	//查询文件数据并校验字符串是否存在
 	static bool GetFileDataAndTesting(string FilePath, string Str);
-	//逐行校验文件制定内容
+	//逐行校验文件指定内容
 	static bool CheckPerLineContent(string FilePath, int StaticSub, int EndSub, string Str);
 	//校验指定目录是否存在
 	static void TestingCatalog(vector<string>* FilePath);

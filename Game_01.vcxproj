@@ -143,23 +143,21 @@
     <ClCompile Include="DataStorage.cpp" />
     <ClCompile Include="GameRun.cpp" />
     <ClCompile Include="Login.cpp" />
-    <ClCompile Include="Master.cpp" />
-    <ClCompile Include="Minister.cpp" />
     <ClCompile Include="Role.cpp" />
     <ClCompile Include="StaticConstant.cpp" />
-    <ClCompile Include="Warrior.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Blame.h" />
+    <ClInclude Include="BlameUtils.h" />
     <ClInclude Include="DataStorage.h" />
     <ClInclude Include="Login.h" />
-    <ClInclude Include="Master.h" />
-    <ClInclude Include="Minister.h" />
+    <ClInclude Include="Process.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Role.h" />
     <ClInclude Include="RoleUtils.h" />
+    <ClInclude Include="Skill.h" />
     <ClInclude Include="StaticConstant.h" />
     <ClInclude Include="UuidUtils.h" />
-    <ClInclude Include="Warrior.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="开发规划.txt" />

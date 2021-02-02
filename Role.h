@@ -1,6 +1,8 @@
 #pragma once
+#include"Skill.h"
 #include <string>
 #include <vector>
+#include <map>
 using namespace std;
 
 class Role {
@@ -16,21 +18,48 @@ protected:
 	int Grade;
 	//角色生命值
 	int HitPoint;
+	//最大生命值
+	int maxHitPoint;
 	//基础伤害
 	int Hurt;
-	//角色行动点
+	//角色正常攻击消耗点数
 	int ActionPoints;
-	//角色经验值
-	double Experience;
+	//角色当前经验值
+	float Experience;
 	//角色升级所需经验值
-	double ExperienceTotal;
-	//增益状态
-	vector<int>* Buffer;
+	float ExperienceTotal;
+	//增益状态 map<buffer状态值, 剩余回合数>
+	map<int, int>* Buffer = new map<int, int>;
 	//减益状态
-	vector<int>* DeBuffer;
+	map<int, int>* DeBuffer = new map<int, int>;
 	//玩家所在层数
 	int layerl;
+	//1技能 
+	Skill* SkillOne;
+	//2技能
+	Skill* SkillTwo;
+	//3技能
+	Skill* SkillThree;
+
+	/*****战士特有属性*****/
+	//暴击率
+	int criticalHit;
+	/*****法师特有属性*****/
+	/*****牧师特有属性*****/
 public:
+	//销毁
+	~Role() {
+		delete(Buffer);
+		Buffer = NULL;
+		delete(DeBuffer);
+		DeBuffer = NULL;
+		delete(SkillOne);
+		SkillOne = NULL;
+		delete(SkillTwo);
+		SkillTwo = NULL;
+		delete(SkillThree);
+		SkillThree = NULL;
+	}
 	//回合开始
 	void RoundStart();
 	//回合结束
@@ -38,16 +67,12 @@ public:
 	//攻击(伤害计算)
 	void Attack();
 	//被攻击
-	void BeHurt(double Hurt);
-	//1技能 
-	void SkillOne();
-	//2技能
-	void SkillTwo();
-	//3技能
-	void SkillThree();
+	void BeHurt(int Hurt);
 
 	//toString
 	string ToString();
+
+	//角色信息
 public:
 	int GetOccupationId() {
 		return this->OccupationId;
@@ -87,10 +112,7 @@ public:
 	int GetGrade() {
 		return this->Grade;
 	}
-	void SetGrade(int Grade) {
-		this->Grade = Grade;
-		this->ExperienceTotal = Grade * 10;
-	}
+	void SetGrade(int Grade);
 
 	int GetHitPoint() {
 		return this->HitPoint;
@@ -113,31 +135,31 @@ public:
 		this->ActionPoints = ActionPoints;
 	}
 
-	double GetExperience() {
+	float GetExperience() {
 		return this->Experience;
 	}
-	void SetExperience(double Experience) {
+	void SetExperience(float Experience) {
 		this->Experience = Experience;
 	}
 
-	double GetExperienceTotal() {
+	float GetExperienceTotal() {
 		return this->ExperienceTotal;
 	}
-	void SetExperienceTotal(double ExperienceTotal) {
+	void SetExperienceTotal(float ExperienceTotal) {
 		this->ExperienceTotal = ExperienceTotal;
 	}
 
-	vector<int>* GetBuffer() {
+	map<int, int>* GetBuffer() {
 		return this->Buffer;
 	}
-	void SetBuffer(vector<int>* Buffer) {
+	void SetBuffer(map<int, int>* Buffer) {
 		this->Buffer = Buffer;
 	}
 
-	vector<int>* GetDeBuffer() {
+	map<int, int>* GetDeBuffer() {
 		return this->DeBuffer;
 	}
-	void SetDeBuffer(vector<int>* DeBuffer) {
+	void SetDeBuffer(map<int, int>* DeBuffer) {
 		this->DeBuffer = DeBuffer;
 	}
 	
@@ -146,6 +168,34 @@ public:
 	}
 	void SetLayerl(int layerl) {
 		this->layerl = layerl;
+	}
+
+	int GetCriticalHit() {
+		return this->criticalHit;
+	}
+	void SetCriticalHit(int criticalHit) {
+		this->criticalHit = criticalHit;
+	}
+
+	Skill* GetSkillOne() {
+		return this->SkillOne;
+	}
+	void SetSkillOne(Skill* SkillOne) {
+		this->SkillOne = SkillOne;
+	}
+
+	Skill* GetSkillTwo() {
+		return this->SkillTwo;
+	}
+	void SetSkillTwo(Skill* SkillTwo) {
+		this->SkillTwo = SkillTwo;
+	}
+
+	Skill* GetSkillThree() {
+		return this->SkillThree;
+	}
+	void SetSkillThree(Skill* SkillThree) {
+		this->SkillThree = SkillThree;
 	}
 
 };
